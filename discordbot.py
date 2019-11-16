@@ -28,8 +28,8 @@ async def on_ready():
 
 # 指定時間に走る処理
 async def SendMessage():
-    channel = client.get_channel(CHANNEL_ID)
-    await channel.send('時間だよ')
+    #channel = client.get_channel(CHANNEL_ID)
+    await ctx.send('時間だよ')
 
 # 30秒に一回ループ
 @tasks.loop(seconds=30)
@@ -51,7 +51,7 @@ async def on_message(message):
         return
     # 使用できるコマンド一覧
     if message.content == '!help':
-        await message.channel.send('現在使用できるコマンドはありません')
+        await message.ctx.send('現在使用できるコマンドはありません')
 
 #ループ処理
 time_check.start()
