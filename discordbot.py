@@ -14,7 +14,7 @@ async def on_command_error(ctx, error):
 async def called_once_a_day():
     #message_channel = bot.get_channel(target_channel_id)
    # print(f"Got channel {message_channel}")
-    await message_channel.send("Test man is testing")
+    await ctx.send("Test man is testing")
 
 @called_once_a_day.before_loop
 async def before():
