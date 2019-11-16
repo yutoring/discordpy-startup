@@ -2,17 +2,21 @@ from discord.ext import commands, tasks
 from datetime import datetime
 import os
 import traceback
+import discord
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 CHANNEL_ID = 325988737572012033
 
+# 接続に必要なオブジェクトを生成
+client = discord.Client()
+
 #投稿する日時
 dateTimeList = [
 '2019/11/16 18:09',
 '2019/11/16 18:15',
-'2019/11/16 18:10',
+'2019/11/16 18:20',
 '2019/05/22 07:00',
 '2019/05/23 07:00',
 '2019/05/24 07:00',
