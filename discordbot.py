@@ -8,14 +8,11 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 CHANNEL_ID = 325988737572012033
 
-client = discord.Client()
-
-
 #投稿する日時
 dateTimeList = [
 '2019/11/16 18:09',
-'2019/05/20 18:30',
-'2019/05/21 18:30',
+'2019/11/16 18:15',
+'2019/11/16 18:10',
 '2019/05/22 07:00',
 '2019/05/23 07:00',
 '2019/05/24 07:00',
@@ -29,7 +26,7 @@ async def on_ready():
 
 # 指定時間に走る処理
 async def SendMessage():
-    channel = client.get_channel(CHANNEL_ID)
+    channel = get_channel(CHANNEL_ID)
     await channel.send('時間だよ')
 
 # 30秒に一回ループ
@@ -45,7 +42,7 @@ async def time_check():
         await asyncio.sleep(30)
 
         
-        @bot.command()
+@bot.command()
 async def ping(ctx):
     await ctx.send('pong')
 
@@ -53,5 +50,5 @@ async def ping(ctx):
 #ループ処理
 time_check.start()
 # Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
+client.run(token)
 bot.run(token)
