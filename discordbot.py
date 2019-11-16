@@ -40,4 +40,8 @@ async def ping(ctx):
     await ctx.send('pong')
 
 
+    
+#ループ処理
+time_check.start()
+
 bot.run(token)
