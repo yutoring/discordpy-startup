@@ -11,18 +11,16 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 client = discord.Client()
 
+@bot.event
+async def on_command_error(ctx, error):
+    await ctx.send(str(error))
+    
+
 
 #投稿する日時
 dateTimeList = [
-'2019/11/16 17:59',
-'2019/05/20 18:30',
-'2019/05/21 18:30',
-'2019/05/22 07:00',
-'2019/05/23 07:00',
-'2019/05/24 07:00',
-'2019/05/25 07:00'
+'2019/11/16 18:05',
 ]
-
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -55,14 +53,8 @@ async def on_message(message):
     if message.content == '!help':
         await message.channel.send('現在使用できるコマンドはありません')
 
-    @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-    
-        
-        
 #ループ処理
 time_check.start()
 # Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
 bot.run(token)
+client.run(token)
