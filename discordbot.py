@@ -8,13 +8,24 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 dateTimeList = [
-'17:25'
+'17:30'
 ]
 
 @bot.event
 async def on_command_error(ctx, error):
     await ctx.send(str(error))
 
+# 起動時に動作する処理
+@client.event
+async def on_ready():
+    print('ready')
+
+# 指定時間に走る処理
+async def SendMessage():
+    channel = client.get_channel(CHANNEL_ID)
+    await channel.send('時間だよ')    
+    
+    
 
 @tasks.loop(seconds=30)
 async def time_check():
