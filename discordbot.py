@@ -6,7 +6,7 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-target_channel_id = 325988737572012033
+CHANNEL_ID = 325988737572012033
 
 client = discord.Client()
 
@@ -44,15 +44,6 @@ async def time_check():
         #該当時間だった場合は２重に投稿しないよう３０秒余計に待機
         await asyncio.sleep(30)
 
-# メッセージ受信時に動作する処理
-@client.event
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    # 使用できるコマンド一覧
-    if message.content == '!help':
-        await message.channel.send('現在使用できるコマンドはありません')
         
         @bot.command()
 async def ping(ctx):
