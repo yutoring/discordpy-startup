@@ -1,8 +1,10 @@
-from discord.ext import commands, tasks
+import discord
+import commands
+import tasks
 from datetime import datetime
 import os
 import traceback
-import discord
+
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
