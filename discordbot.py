@@ -1,5 +1,4 @@
-import discord
-import commands
+from discord.ext import commands
 import tasks
 from datetime import datetime
 import os
@@ -9,20 +8,15 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-CHANNEL_ID = 325988737572012033
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
 
 #投稿する日時
 dateTimeList = [
-'2019/11/16 18:09',
-'2019/11/16 18:15',
-'2019/11/16 18:20',
-'2019/05/22 07:00',
-'2019/05/23 07:00',
-'2019/05/24 07:00',
-'2019/05/25 07:00'
+'2019/11/19 18:09',
+'2019/11/19 18:15',
+'2019/11/19 18:20',
 ]
 
 # 起動時に動作する処理
@@ -32,7 +26,7 @@ async def on_ready():
 
 # 指定時間に走る処理
 async def SendMessage():
-    channel = get_channel(CHANNEL_ID)
+    channel = get_channel(ctx)
     await channel.send('時間だよ')
 
 # 30秒に一回ループ
